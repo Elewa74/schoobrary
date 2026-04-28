@@ -288,7 +288,7 @@ button,input,textarea,select{font-family:inherit}
   opacity:.46;
   background:
     linear-gradient(90deg,rgba(2,8,20,.20),rgba(2,8,20,.42) 50%,rgba(2,8,20,.12)),
-    url("../img/digital-library-tech-hero.png") center/cover no-repeat;
+    url("../img/digital-library-tech-hero.webp") center/cover no-repeat;
   filter:saturate(1.12) contrast(1.08);
   -webkit-mask-image:radial-gradient(circle at var(--mouse-x,58%) var(--mouse-y,45%),#000 0 13%,rgba(0,0,0,.94) 19%,rgba(0,0,0,.58) 31%,transparent 50%);
   mask-image:radial-gradient(circle at var(--mouse-x,58%) var(--mouse-y,45%),#000 0 13%,rgba(0,0,0,.94) 19%,rgba(0,0,0,.58) 31%,transparent 50%);
@@ -328,6 +328,9 @@ button,input,textarea,select{font-family:inherit}
 [dir="rtl"] .hero h1, [dir="rtl"] .page-hero h1, [dir="rtl"] .section-title {
   font-family:"Cairo", "IBM Plex Sans Arabic", sans-serif;
   letter-spacing: 0;
+  line-height:1.22;
+  font-weight:800;
+  text-wrap:balance;
 }
 .hero h1{font-size:clamp(46px,5.7vw,74px);max-width:680px;margin-bottom:20px}
 .hero h1{color:#fff;text-shadow:0 20px 46px rgba(0,0,0,.32)}
@@ -450,6 +453,7 @@ button,input,textarea,select{font-family:inherit}
 .section-header{max-width:780px;margin-bottom:50px}
 .section-header.center{text-align:center;margin-inline:auto}
 .section-title{font-size:clamp(34px,4vw,58px);color:var(--blue-deep);margin-bottom:14px}
+[dir="rtl"] .section-title{font-size:clamp(32px,3.6vw,52px)}
 .section-dark .section-title{color:var(--blue-deep)}
 .section-sub{font-size:18px;color:var(--muted)}
 .section-dark .section-sub{color:var(--muted)}
@@ -525,17 +529,31 @@ button,input,textarea,select{font-family:inherit}
 .stat:last-child{border-right:none}
 .stat:hover{background:var(--blue-pale);transform:translateY(-3px)}
 .stat strong{display:block;font-family:"IBM Plex Sans", "IBM Plex Sans Arabic", sans-serif;font-size:35px;line-height:1;color:var(--blue-link)}
-[dir="rtl"] .stat strong{font-family:"Cairo", "IBM Plex Sans Arabic", sans-serif}
+[dir="rtl"] .stat strong{
+  font-family:"Cairo", "IBM Plex Sans Arabic", sans-serif;
+  display:inline-flex;
+  flex-direction:row;
+  align-items:baseline;
+  justify-content:center;
+  gap:0;
+  direction:rtl;
+  unicode-bidi:isolate;
+  letter-spacing:0;
+  white-space:nowrap;
+}
+[dir="rtl"] .stat-word{margin-inline-start:.18em}
+[dir="rtl"] .stat-plus{margin-inline-start:0}
 .stat:nth-child(2) strong,.stat:nth-child(4) strong{color:var(--green-dark)}
 .stat:nth-child(3) strong,.stat:nth-child(5) strong{color:var(--orange-dark)}
-.stat span{font-size:12px;color:var(--muted);display:block;margin-top:8px}
+.stat strong span{font-size:inherit;color:inherit;margin-top:0}
+.stat > span{font-size:12px;color:var(--muted);display:block;margin-top:8px}
 
 /* Split / media */
 .split{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
 .visual-panel{
   min-height:430px;border-radius:36px;background:
   linear-gradient(135deg,rgba(13,59,122,.28),rgba(58,157,93,.12)),
-  url("../img/digital-library-human.png");
+  url("../img/digital-library-human.webp");
   background-size:cover;background-position:center;box-shadow:var(--shadow-lg);position:relative;overflow:hidden
 }
 .visual-panel::before{
@@ -1615,7 +1633,7 @@ html:not(.js-ready) .reveal{opacity:1;transform:none}
   /* Stats */
   .stat{padding:20px 12px}
   .stat strong{font-size:26px}
-  .stat span{font-size:11px;margin-top:4px}
+  .stat > span{font-size:11px;margin-top:4px}
 
   /* Split & visual-panel */
   .split{gap:28px}
