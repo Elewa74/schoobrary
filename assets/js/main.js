@@ -89,16 +89,6 @@
     counters.forEach(animateCounter);
   }
 
-  const form = document.querySelector('[data-demo-form]');
-  if(form){
-    form.addEventListener('submit', (e)=>{
-      e.preventDefault();
-      const msg = document.querySelector('.success-message');
-      if(msg) msg.style.display = 'block';
-      form.reset();
-    });
-  }
-
   document.querySelectorAll('.lang-toggle').forEach(el=>{
     el.addEventListener('click', ()=>{
       const isAr = document.documentElement.getAttribute('lang') === 'ar';
