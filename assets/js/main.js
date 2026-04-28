@@ -1,4 +1,4 @@
-
+﻿
 (function(){
   document.documentElement.classList.add('js-ready');
   const header = document.querySelector('.site-header');
@@ -120,13 +120,13 @@
   if(searchButtons.length){
     const isAr = document.documentElement.getAttribute('lang') === 'ar';
     const pages = isAr ? [
-      ['الرئيسية','نظرة عامة على سكولبري والمكتبات والأدوار','index-ar.html'],
-      ['من نحن','قصة سكولبري ومجموعة المتحدة للتعليم','about-ar.html'],
+      ['الرئيسية','نظرة عامة على سكوبراري والمكتبات والأدوار','index-ar.html'],
+      ['من نحن','قصة سكوبراري ومجموعة المتحدة للتعليم','about-ar.html'],
       ['المكتبات','المكتبات الاثنتا عشرة وأنواع المحتوى','libraries-ar.html'],
       ['بنك الأسئلة','التقييم الذكي والتصحيح الآلي والتحليلات','question-bank-ar.html'],
       ['التكاملات','LTI وSCORM وxAPI وتسجيل الدخول الموحد','integrations-ar.html'],
       ['المدارس','الفوائد المؤسسية والانتشار والتفعيل','schools-ar.html'],
-      ['المعلمون','سير عمل المعلم قبل وبعد سكولبري','teachers-ar.html'],
+      ['المعلمون','سير عمل المعلم قبل وبعد سكوبراري','teachers-ar.html'],
       ['الطلاب والأهل','تجربة تعلم آمنة ومناسبة للجوال','students-ar.html'],
       ['اتصل بنا','طلب عرض تجريبي والتواصل مع الفريق','contact-ar.html'],
       ['الخصوصية والشروط','السياسات وإمكانية الوصول','legal-ar.html']
