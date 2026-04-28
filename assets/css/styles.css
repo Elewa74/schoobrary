@@ -811,6 +811,96 @@ html:not(.js-ready) .reveal{opacity:1;transform:none}
   box-shadow:0 12px 26px rgba(58,123,213,.13);
 }
 
+/* Soft 3D icon system */
+.card-icon,
+.universe-icon,
+.benefit-icon,
+.atlas-node span,
+.float-card .icon{
+  position:relative;
+  overflow:visible;
+  border:1px solid rgba(255,255,255,.86);
+  background:
+    radial-gradient(circle at 28% 18%, rgba(255,255,255,.95), transparent 31%),
+    linear-gradient(145deg,#F9FCFF 0%,#DDEEFF 50%,#B9D8FF 100%);
+  color:var(--blue-deep);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.92),
+    inset -10px -14px 20px rgba(13,34,64,.08),
+    0 16px 28px rgba(29,73,138,.20),
+    0 3px 0 rgba(29,73,138,.14);
+  text-shadow:0 2px 8px rgba(13,34,64,.16);
+}
+.card-icon::after,
+.universe-icon::after,
+.benefit-icon::after,
+.atlas-node span::after,
+.float-card .icon::after{
+  content:"";
+  position:absolute;
+  left:18%;
+  right:18%;
+  bottom:-10px;
+  height:13px;
+  border-radius:999px;
+  background:radial-gradient(ellipse,rgba(13,34,64,.24),transparent 70%);
+  filter:blur(2px);
+  z-index:-1;
+  pointer-events:none;
+}
+.card-icon svg,
+.universe-icon svg,
+.lib-icon{
+  filter:
+    drop-shadow(0 2px 0 rgba(255,255,255,.72))
+    drop-shadow(0 7px 8px rgba(13,34,64,.18));
+}
+.card-green .card-icon,
+.card:nth-child(3n + 2):not(.card-blue):not(.card-green):not(.card-orange) .card-icon,
+.benefit-row:nth-child(2n) .benefit-icon{
+  background:
+    radial-gradient(circle at 28% 18%, rgba(255,255,255,.94), transparent 31%),
+    linear-gradient(145deg,#FBFFFB 0%,#DDF5DF 50%,#8FD895 100%);
+  color:var(--green-dark);
+}
+.card-orange .card-icon,
+.card:nth-child(3n):not(.card-blue):not(.card-green):not(.card-orange) .card-icon,
+.benefit-row:nth-child(3n) .benefit-icon{
+  background:
+    radial-gradient(circle at 28% 18%, rgba(255,255,255,.94), transparent 31%),
+    linear-gradient(145deg,#FFF9F5 0%,#FFE0D2 50%,#FF9B6F 100%);
+  color:var(--orange-dark);
+}
+.card:hover .card-icon,
+.universe-card:hover .universe-icon,
+.universe-card:focus-visible .universe-icon,
+.benefit-row:hover .benefit-icon{
+  transform:translateY(-4px) scale(1.04);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.94),
+    inset -10px -14px 20px rgba(13,34,64,.08),
+    0 20px 34px rgba(29,73,138,.24),
+    0 4px 0 rgba(29,73,138,.15);
+}
+.lib-icon{
+  width:20px;
+  height:20px;
+  padding:7px;
+  border-radius:12px;
+  background:
+    radial-gradient(circle at 28% 18%, rgba(255,255,255,.95), transparent 31%),
+    linear-gradient(145deg,#F9FCFF 0%,#DDEEFF 50%,#B9D8FF 100%);
+  border:1px solid rgba(255,255,255,.86);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.92),
+    inset -6px -8px 13px rgba(13,34,64,.08),
+    0 10px 18px rgba(29,73,138,.18);
+  margin-right:10px;
+}
+[dir="rtl"] .lib-icon{
+  margin-right:0;
+  margin-left:10px;
+}
 
 .footer .logo{
   display:inline-flex;
@@ -1135,6 +1225,67 @@ html:not(.js-ready) .reveal{opacity:1;transform:none}
 .benefit-content p{
   color:var(--muted);
   font-size:16px;
+}
+
+/* Final 3D icon pass after legacy icon rules */
+.card-icon,
+.universe-icon,
+.benefit-icon,
+.atlas-node span,
+.float-card .icon{
+  border:1px solid rgba(255,255,255,.86);
+  background:
+    radial-gradient(circle at 28% 18%, rgba(255,255,255,.95), transparent 31%),
+    linear-gradient(145deg,#F9FCFF 0%,#DDEEFF 50%,#B9D8FF 100%);
+  color:var(--blue-deep);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.92),
+    inset -10px -14px 20px rgba(13,34,64,.08),
+    0 16px 28px rgba(29,73,138,.20),
+    0 3px 0 rgba(29,73,138,.14);
+  text-shadow:0 2px 8px rgba(13,34,64,.16);
+}
+.card-blue .card-icon{
+  background:
+    radial-gradient(circle at 28% 18%, rgba(255,255,255,.95), transparent 31%),
+    linear-gradient(145deg,#F9FCFF 0%,#DDEEFF 50%,#B9D8FF 100%);
+}
+.card-green .card-icon,
+.card:nth-child(3n + 2):not(.card-blue):not(.card-green):not(.card-orange) .card-icon,
+.benefit-row:nth-child(2n) .benefit-icon{
+  background:
+    radial-gradient(circle at 28% 18%, rgba(255,255,255,.94), transparent 31%),
+    linear-gradient(145deg,#FBFFFB 0%,#DDF5DF 50%,#8FD895 100%);
+  color:var(--green-dark);
+}
+.card-orange .card-icon,
+.card:nth-child(3n):not(.card-blue):not(.card-green):not(.card-orange) .card-icon,
+.benefit-row:nth-child(3n) .benefit-icon{
+  background:
+    radial-gradient(circle at 28% 18%, rgba(255,255,255,.94), transparent 31%),
+    linear-gradient(145deg,#FFF9F5 0%,#FFE0D2 50%,#FF9B6F 100%);
+  color:var(--orange-dark);
+}
+.lib-icon{
+  width:36px;
+  height:36px;
+  padding:7px;
+  box-sizing:border-box;
+  border-radius:12px;
+  background:
+    radial-gradient(circle at 28% 18%, rgba(255,255,255,.95), transparent 31%),
+    linear-gradient(145deg,#F9FCFF 0%,#DDEEFF 50%,#B9D8FF 100%);
+  border:1px solid rgba(255,255,255,.86);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.92),
+    inset -6px -8px 13px rgba(13,34,64,.08),
+    0 10px 18px rgba(29,73,138,.18);
+  margin-right:10px;
+  vertical-align:middle;
+}
+[dir="rtl"] .lib-icon{
+  margin-right:0;
+  margin-left:10px;
 }
 
 /* Before / after teacher workflow */
