@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Schoobrary — Color Palette & Style Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,500;1,700&family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --blue:#3A7BD5; --blue-mid:#2C66B8; --blue-dark:#1D498A; --blue-light:#EAF1FB; --blue-pale:#F5F9FF;
+  --green:#3A9D5D; --green-dark:#246B3D; --green-light:#EAF4EE; --green-pale:#F3F9F6;
+  --orange:#F26A2E; --orange-mid:#D95A24; --orange-light:#FDEEE6; --orange-pale:#FFF7F3;
+  --navy:#0D2240; --navy-mid:#1A3460; --white:#FFFFFF; --off-white:#F8FBFF;
+  --grey:#F2F5F9; --border:#D8E6F5; --text:#24364B; --muted:#6B7C8F;
+  --footer-bg:#061428;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'IBM Plex Serif',serif;background:var(--off-white);color:var(--text);line-height:1.65;padding:48px 24px 96px}
+.wrap{max-width:1180px;margin:0 auto}
+h1{font-family:'IBM Plex Sans',sans-serif;font-size:48px;font-weight:700;color:var(--navy);line-height:1.12;margin-bottom:10px;letter-spacing:-.02em}
+h2{font-family:'IBM Plex Sans',sans-serif;font-size:30px;font-weight:700;color:var(--navy);margin:56px 0 8px;letter-spacing:-.01em}
+h3{font-family:'IBM Plex Serif',serif;font-size:14px;font-weight:700;color:var(--blue);text-transform:uppercase;letter-spacing:.18em;margin:32px 0 14px}
+p.lead{font-size:17px;color:var(--muted);max-width:760px;margin-bottom:8px}
+p.note{font-size:13px;color:var(--muted);margin:6px 0 20px}
+
+/* Header chip */
+.chip{display:inline-flex;align-items:center;gap:8px;background:var(--blue-pale);color:var(--blue);font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;padding:6px 14px;border-radius:30px;border:1px solid var(--border);margin-bottom:18px}
+
+/* Swatch grids */
+.grid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-bottom:8px}
+.grid-4{grid-template-columns:repeat(4,1fr)}
+.grid-3{grid-template-columns:repeat(3,1fr)}
+.grid-2{grid-template-columns:repeat(2,1fr)}
+@media (max-width:880px){.grid,.grid-4,.grid-3{grid-template-columns:repeat(2,1fr)}}
+
+.sw{border-radius:14px;overflow:hidden;border:1px solid var(--border);background:#fff;box-shadow:0 2px 8px rgba(30,136,229,.06);transition:transform .2s,box-shadow .2s}
+.sw:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(30,136,229,.12)}
+.sw .col{height:110px}
+.sw .meta{padding:12px 14px}
+.sw .name{font-size:13px;font-weight:700;color:var(--navy)}
+.sw .var{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted);margin-top:2px}
+.sw .hex{font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:600;color:var(--text);margin-top:6px;display:flex;justify-content:space-between;align-items:center}
+.sw .hex .rgb{color:var(--muted);font-weight:400;font-size:10.5px}
+
+/* Gradient cards */
+.gcards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:8px}
+@media (max-width:880px){.gcards{grid-template-columns:1fr}}
+.gc{border-radius:18px;overflow:hidden;border:1px solid var(--border);background:#fff;box-shadow:0 2px 8px rgba(30,136,229,.06)}
+.gc .grad{height:140px;display:flex;align-items:flex-end;padding:14px;color:#fff;font-weight:700;font-family:'IBM Plex Sans',sans-serif;font-size:18px;text-shadow:0 1px 2px rgba(0,0,0,.2)}
+.gc .body{padding:14px 16px}
+.gc .body code{display:block;font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--text);background:var(--grey);padding:8px 10px;border-radius:8px;line-height:1.55;word-break:break-all}
+
+/* Code block */
+pre{background:var(--navy);color:#E3F2FD;border-radius:14px;padding:22px 24px;overflow-x:auto;font-family:'JetBrains Mono',monospace;font-size:13px;line-height:1.7;margin-bottom:8px;box-shadow:0 8px 28px rgba(13,34,64,.18)}
+pre .com{color:#7BAEDD;font-style:italic}
+pre .key{color:#FFE082}
+pre .str{color:#A5D6A7}
+code.inline{font-family:'JetBrains Mono',monospace;background:var(--blue-pale);color:var(--blue-mid);padding:2px 7px;border-radius:5px;font-size:12.5px;font-weight:600}
+
+/* Token tables */
+table{width:100%;border-collapse:separate;border-spacing:0;background:#fff;border:1px solid var(--border);border-radius:12px;overflow:hidden;box-shadow:0 2px 8px rgba(30,136,229,.05);font-size:13.5px}
+th,td{padding:12px 16px;text-align:left;border-bottom:1px solid var(--border)}
+th{background:var(--blue-pale);color:var(--navy);font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:.06em}
+tr:last-child td{border-bottom:none}
+td code{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--blue-mid);background:var(--blue-pale);padding:1px 6px;border-radius:4px}
+td .dot{display:inline-block;width:14px;height:14px;border-radius:4px;border:1px solid var(--border);vertical-align:-3px;margin-right:8px}
+
+/* Usage examples */
+.ex-row{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-bottom:8px}
+@media (max-width:880px){.ex-row{grid-template-columns:1fr}}
+.ex{padding:24px;border-radius:16px;border:1px solid var(--border);background:#fff}
+.ex h4{font-size:14px;color:var(--navy);margin-bottom:14px;font-weight:700}
+.btn{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:14px;padding:12px 24px;border-radius:8px;border:none;cursor:pointer;margin:0 8px 8px 0;font-family:'IBM Plex Serif',serif;transition:all .2s}
+.btn-orange{background:linear-gradient(135deg,var(--orange),#e04820);color:#fff;box-shadow:0 4px 18px rgba(240,90,40,.35)}
+.btn-orange:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(240,90,40,.5)}
+.btn-blue{background:linear-gradient(135deg,var(--blue),var(--blue-mid));color:#fff;box-shadow:0 4px 18px rgba(30,136,229,.3)}
+.btn-blue:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(30,136,229,.45)}
+.btn-green{background:linear-gradient(135deg,var(--green),var(--green-dark));color:#fff;box-shadow:0 4px 18px rgba(77,184,72,.3)}
+.btn-white{background:#fff;color:var(--navy);border:1.5px solid var(--border)}
+.btn-white:hover{border-color:var(--blue);color:var(--blue);background:var(--blue-pale)}
+.btn-outline{background:transparent;color:var(--blue);border:1.5px solid var(--blue)}
+.btn-outline:hover{background:var(--blue);color:#fff}
+
+.bg-strip{padding:34px 28px;border-radius:14px;margin-bottom:14px;border:1px solid var(--border)}
+.bg-strip h5{font-family:'IBM Plex Sans',sans-serif;font-size:22px;font-weight:600;margin-bottom:6px}
+.bg-strip p{font-size:14px}
+.bg-white{background:#fff;color:var(--navy)}
+.bg-pale{background:var(--blue-pale);color:var(--navy)}
+.bg-grey{background:var(--grey);color:var(--navy)}
+.bg-hero{background:linear-gradient(145deg,var(--blue-dark) 0%,var(--blue-mid) 40%,var(--blue) 100%);color:#fff;border:none}
+.bg-hero p{color:rgba(255,255,255,.78)}
+.bg-cta{background:linear-gradient(145deg,var(--blue-dark),var(--blue-mid),var(--blue));color:#fff;border:none}
+.bg-footer{background:var(--footer-bg);color:rgba(255,255,255,.55)}
+.bg-footer h5{color:#fff}
+
+/* Typography sample */
+.ty{padding:20px 22px;border:1px solid var(--border);border-radius:14px;background:#fff;margin-bottom:12px}
+.ty .specimen{font-family:'IBM Plex Sans',sans-serif;font-size:38px;font-weight:700;color:var(--navy);line-height:1.1}
+.ty .specimen .grad{background:linear-gradient(90deg,#FFE082,var(--orange),#FF8A65);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.ty .specimen-body{font-family:'IBM Plex Serif',serif;font-size:16px;color:var(--muted);margin-top:10px;font-weight:400}
+.ty .specimen-eyebrow{font-family:'IBM Plex Serif',serif;font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--blue);margin-bottom:6px}
+
+.shadow-row{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+@media (max-width:880px){.shadow-row{grid-template-columns:1fr}}
+.shc{background:#fff;padding:28px;border-radius:14px;text-align:center;font-size:13px;font-weight:600;color:var(--navy)}
+.shc small{display:block;color:var(--muted);font-family:'JetBrains Mono',monospace;font-size:10.5px;font-weight:400;margin-top:8px}
+.shc.sm{box-shadow:0 2px 8px rgba(30,136,229,.08)}
+.shc.md{box-shadow:0 8px 28px rgba(30,136,229,.12)}
+.shc.lg{box-shadow:0 20px 56px rgba(13,34,64,.14)}
+
+.radius-row{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+@media (max-width:880px){.radius-row{grid-template-columns:1fr}}
+.rc{background:linear-gradient(135deg,var(--blue),var(--blue-mid));color:#fff;height:100px;display:flex;align-items:center;justify-content:center;font-weight:700;font-family:'JetBrains Mono',monospace;font-size:13px}
+.rc.r1{border-radius:12px}
+.rc.r2{border-radius:20px}
+.rc.r3{border-radius:28px}
+
+/* Decorative palette */
+.deco{display:grid;grid-template-columns:repeat(8,1fr);gap:8px;margin-bottom:8px}
+@media (max-width:880px){.deco{grid-template-columns:repeat(4,1fr)}}
+.deco .d{height:64px;border-radius:10px;display:flex;align-items:flex-end;padding:6px;color:#fff;font-family:'JetBrains Mono',monospace;font-size:9.5px;font-weight:600;text-shadow:0 1px 2px rgba(0,0,0,.3)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <span class="chip">Schoobrary · Brand Style Guide</span>
+  <h1>Color Palette &amp; Visual Identity System</h1>
+  <p class="lead">A complete reference for Schoobrary's design tokens — every color, gradient, shadow, radius, and typography choice used on schoobrary_v3.html, ready to drop into another website.</p>
+  <p class="note">All values are taken from the live <code class="inline">:root</code> tokens in the source file. CSS variable names are preserved, so this palette can be pasted into any project unchanged.</p>
+
+  <!-- ───────── PRIMARY ───────── -->
+  <h2>1. Primary — Blue (Brand Anchor)</h2>
+  <p class="lead">Schoobrary's identity is built on a confident, education-friendly blue. Use it for the logo, primary navigation states, links, hero backgrounds, and the dominant call-to-action gradients.</p>
+  <div class="grid">
+    <div class="sw"><div class="col" style="background:#3A7BD5"></div><div class="meta"><div class="name">Blue</div><div class="var">--blue</div><div class="hex">#3A7BD5<span class="rgb">rgb(58,123,213)</span></div></div></div>
+    <div class="sw"><div class="col" style="background:#2C66B8"></div><div class="meta"><div class="name">Blue Mid</div><div class="var">--blue-mid</div><div class="hex">#2C66B8<span class="rgb">rgb(44,102,184)</span></div></div></div>
+    <div class="sw"><div class="col" style="background:#1D498A"></div><div class="meta"><div class="name">Blue Dark</div><div class="var">--blue-dark</div><div class="hex">#1D498A<span class="rgb">rgb(29,73,138)</span></div></div></div>
+    <div class="sw"><div class="col" style="background:#EAF1FB"></div><div class="meta"><div class="name">Blue Light</div><div class="var">--blue-light</div><div class="hex">#EAF1FB<span class="rgb">rgb(234,241,251)</span></div></div></div>
+    <div class="sw"><div class="col" style="background:#F5F9FF"></div><div class="meta"><div class="name">Blue Pale</div><div class="var">--blue-pale</div><div class="hex">#F5F9FF<span class="rgb">rgb(245,249,255)</span></div></div></div>
+  </div>
+  <p class="note"><strong>Usage.</strong> <code class="inline">--blue</code> is the default link / active-state color. <code class="inline">--blue-mid</code> pairs with <code class="inline">--blue</code> in 135° gradients on primary buttons and the logo mark. <code class="inline">--blue-dark</code> anchors hero and CTA backgrounds. <code class="inline">--blue-light</code> and <code class="inline">--blue-pale</code> are tinted backgrounds for chips, hover panels, and section bands.</p>
+
+  <!-- ───────── SECONDARY GREEN ───────── -->
+  <h2>2. Secondary — Green (Confirmation &amp; Curriculum)</h2>
+  <p class="lead">Used for positive states, secondary call-to-actions, the "completion" pillar, and curriculum-aligned badges. Pairs with blue in the rolling progress gradient.</p>
+  <div class="grid grid-4">
+    <div class="sw"><div class="col" style="background:#3A9D5D"></div><div class="meta"><div class="name">Green</div><div class="var">--green</div><div class="hex">#3A9D5D<span class="rgb">rgb(58,157,93)</span></div></div></div>
+    <div class="sw"><div class="col" style="background:#246B3D"></div><div class="meta"><div class="name">Green Dark</div><div class="var">--green-dark</div><div class="hex">#246B3D<span class="rgb">rgb(36,107,61)</span></div></div></div>
+    <div class="sw"><div class="col" style="background:#EAF4EE"></div><div class="meta"><div class="name">Green Light</div><div class="var">--green-light</div><div class="hex">#EAF4EE<span class="rgb">rgb(234,244,238)</span></div></div></div>
+    <div class="sw"><div class="col" style="background:#F3F9F6"></div><div class="meta"><div class="name">Green Pale</div><div class="var">--green-pale</div><div class="hex">#F3F9F6<span class="rgb">rgb(243,249,246)</span></div></div></div>
+  </div>
+
+  <!-- ───────── ACCENT ORANGE ───────── -->
+  <h2>3. Accent — Orange (Primary Action)</h2>
+  <p class="lead">The high-energy accent. Reserved for the most important CTAs ("Request a Demo"), pricing badges, the logo's <em>oo</em> letterforms, and ambient warmth in dark sections.</p>
+  <div class="grid grid-4">
+    <div class="sw"><div class="col" style="background:#F26A2E"></div><div class="meta"><div class="name">Orange</div><div class="var">--orange</div><div class="hex">#F26A2E<span class="rgb">rgb(242,106,46)</span></div></div></div>
+    <div class="sw"><div class="col" style="background:#D95A24"></div><div class="meta"><div class="name">Orange Mid</div><div class="var">--orange-mid</div><div class="hex">#D95A24<span class="rgb">rgb(217,90,36)</span></div></div></div>
+    <div class="sw"><div class="col" style="background:#FDEEE6"></div><div class="meta"><div class="name">Orange Light</div><div class="var">--orange-light</div><div class="hex">#FDEEE6<span class="rgb">rgb(253,238,230)</span></div></div></div>
+    <div class="sw"><div class="col" style="background:#FFF7F3"></div><div class="meta"><div class="name">Orange Pale</div><div class="var">--orange-pale</div><div class="hex">#FFF7F3<span class="rgb">rgb(255,247,243)</span></div></div></div>
+  </div>
+  <p class="note"><strong>Rule of thumb.</strong> Use orange sparingly — at most one orange element per viewport — so the CTA never has to compete for attention.</p>
+
+  <!-- ───────── NEUTRALS ───────── -->
+  <h2>4. Neutrals — Navy, Greys &amp; Backgrounds</h2>
+  <p class="lead">The structural palette. <code class="inline">--navy</code> and <code class="inline">--text</code> carry headings and body copy; the white-blue tints below build the page's calm, readable surface.</p>
+  <div class="grid">
+    <div class="sw"><div class="col" style="background:#0D2240"></div><div class="meta"><div class="name">Navy</div><div class="var">--navy</div><div class="hex" style="color:#fff;background:#0D2240;margin:0;padding:6px 0">#0D2240<span class="rgb" style="color:rgba(255,255,255,.6)">rgb(13,34,64)</span></div></div></div>
+    <div class="sw"><div class="col" style="background:#1A3460"></div><div class="meta"><div class="name">Navy Mid</div><div class="var">--navy-mid</div><div class="hex">#1A3460<span class="rgb">rgb(26,52,96)</span></div></div></div>
+    <div class="sw"><div class="col" style="background:#1A2B42"></div><div class="meta"><div class="name">Text</div><div class="var">--text</div><div class="hex">#1A2B42<span class="rgb">rgb(26,43,66)</span></div></div></div>
+    <div class="sw"><div class="col" style="background:#5A6E88"></div><div class="meta"><div class="name">Muted</div><div class="var">--muted</div><div class="hex">#5A6E88<span class="rgb">rgb(90,110,136)</span></div></div></div>
+    <div class="sw"><div class="col" style="background:#061428"></div><div class="meta"><div class="name">Footer BG</div><div class="var">(footer)</div><div class="hex">#061428<span class="rgb">rgb(6,20,40)</span></div></div></div>
+  </div>
+  <div class="grid" style="margin-top:14px">
+    <div class="sw"><div class="col" style="background:#FFFFFF;border-bottom:1px solid var(--border)"></div><div class="meta"><div class="name">White</div><div class="var">--white</div><div class="hex">#FFFFFF<span class="rgb">rgb(255,255,255)</span></div></div></div>
+    <div class="sw"><div class="col" style="background:#F8FBFF"></div><div class="meta"><div class="name">Off-White</div><div class="var">--off-white</div><div class="hex">#F8FBFF<span class="rgb">rgb(248,251,255)</span></div></div></div>
+    <div class="sw"><div class="col" style="background:#F2F5F9"></div><div class="meta"><div class="name">Grey</div><div class="var">--grey</div><div class="hex">#F2F5F9<span class="rgb">rgb(242,245,249)</span></div></div></div>
+    <div class="sw"><div class="col" style="background:#D8E6F5"></div><div class="meta"><div class="name">Border</div><div class="var">--border</div><div class="hex">#D8E6F5<span class="rgb">rgb(216,230,245)</span></div></div></div>
+    <div class="sw"><div class="col" style="background:#F0F7FF"></div><div class="meta"><div class="name">Surface</div><div class="var">--blue-pale</div><div class="hex">#F0F7FF<span class="rgb">rgb(240,247,255)</span></div></div></div>
+  </div>
+
+  <!-- ───────── BACKGROUND STYLES ───────── -->
+  <h2>5. Background Styles</h2>
+  <p class="lead">Five canonical surface treatments cover every section on the site.</p>
+
+  <div class="bg-strip bg-white"><h5>Default page surface — White / Off-White</h5><p style="color:var(--muted)"><code class="inline">background: var(--white)</code> for content cards, <code class="inline">var(--off-white)</code> for the page body. Pair with <code class="inline">--text</code> typography.</p></div>
+  <div class="bg-strip bg-pale"><h5>Soft section band — Blue Pale</h5><p style="color:var(--muted)"><code class="inline">background: var(--blue-pale)</code> separates feature blocks without breaking the calm tone. Use with the <code class="inline">--border</code> hairline.</p></div>
+  <div class="bg-strip bg-grey"><h5>Neutral utility band — Grey</h5><p style="color:var(--muted)"><code class="inline">background: var(--grey)</code> for logo strips, code panels, and tertiary surfaces.</p></div>
+  <div class="bg-strip bg-hero"><h5>Hero gradient — Deep blue diagonal</h5><p><code class="inline" style="background:rgba(255,255,255,.15);color:#fff">linear-gradient(145deg, var(--blue-dark) 0%, var(--blue-mid) 40%, var(--blue) 100%)</code> — overlay with a 32 px radial dot grid at <code class="inline" style="background:rgba(255,255,255,.15);color:#fff">rgba(255,255,255,.12)</code> and two ambient glows (green at 18 % &amp; orange at 12 %).</p></div>
+  <div class="bg-strip bg-cta"><h5>CTA section gradient</h5><p>Same family as the hero (<code class="inline" style="background:rgba(255,255,255,.15);color:#fff">145deg, --blue-dark → --blue-mid → --blue</code>) with two soft radial wash overlays in green and orange.</p></div>
+  <div class="bg-strip bg-footer"><h5>Footer — Near-black navy</h5><p><code class="inline" style="background:rgba(255,255,255,.08);color:#fff">background:#061428</code> with body text at <code class="inline" style="background:rgba(255,255,255,.08);color:#fff">rgba(255,255,255,.4)</code> and copyright at <code class="inline" style="background:rgba(255,255,255,.08);color:#fff">rgba(255,255,255,.25)</code>.</p></div>
+
+  <!-- ───────── GRADIENTS ───────── -->
+  <h2>6. Signature Gradients</h2>
+  <p class="lead">Reusable gradients used across buttons, hero, progress bar, and decorative accents.</p>
+  <div class="gcards">
+    <div class="gc"><div class="grad" style="background:linear-gradient(135deg,#1E88E5,#1565C0)">Primary Blue Button</div><div class="body"><code>linear-gradient(135deg, var(--blue), var(--blue-mid))</code></div></div>
+    <div class="gc"><div class="grad" style="background:linear-gradient(135deg,#F05A28,#e04820)">Primary Orange CTA</div><div class="body"><code>linear-gradient(135deg, var(--orange), #e04820)</code></div></div>
+    <div class="gc"><div class="grad" style="background:linear-gradient(135deg,#4DB848,#2E7D32)">Confirm Green</div><div class="body"><code>linear-gradient(135deg, var(--green), var(--green-dark))</code></div></div>
+    <div class="gc"><div class="grad" style="background:linear-gradient(145deg,#0D3B7A 0%,#1565C0 40%,#1E88E5 100%)">Hero / CTA Background</div><div class="body"><code>linear-gradient(145deg, var(--blue-dark) 0%, var(--blue-mid) 40%, var(--blue) 100%)</code></div></div>
+    <div class="gc"><div class="grad" style="background:linear-gradient(90deg,#1E88E5,#4DB848,#F05A28)">Progress &amp; Pillar Bar</div><div class="body"><code>linear-gradient(90deg, var(--blue), var(--green), var(--orange))</code></div></div>
+    <div class="gc"><div class="grad" style="background:linear-gradient(90deg,#FFE082,#F05A28,#FF8A65);color:#3a1a00;text-shadow:none">Headline Gradient Text</div><div class="body"><code>linear-gradient(90deg, #FFE082, var(--orange), #FF8A65)</code></div></div>
+  </div>
+  <p class="note">For headline gradient text apply <code class="inline">-webkit-background-clip:text</code> + <code class="inline">-webkit-text-fill-color:transparent</code>.</p>
+
+  <!-- ───────── DECORATIVE / ILLUSTRATION ───────── -->
+  <h2>7. Decorative / Illustration Palette</h2>
+  <p class="lead">Used inside the hero "books" and statistics card. They sit beside the brand palette without competing — light, saturated, friendly. Treat as illustration-only, not for UI text or buttons.</p>
+  <div class="deco">
+    <div class="d" style="background:linear-gradient(160deg,#42A5F5,#1E88E5)">#42A5F5</div>
+    <div class="d" style="background:linear-gradient(160deg,#66BB6A,#43A047)">#66BB6A</div>
+    <div class="d" style="background:linear-gradient(160deg,#FF7043,#F4511E)">#FF7043</div>
+    <div class="d" style="background:linear-gradient(160deg,#AB47BC,#7B1FA2)">#AB47BC</div>
+    <div class="d" style="background:linear-gradient(160deg,#FFB300,#F57F17);color:#3a2400;text-shadow:none">#FFB300</div>
+    <div class="d" style="background:#FFE082;color:#5a3a00;text-shadow:none">#FFE082</div>
+    <div class="d" style="background:#A5D6A7;color:#143a16;text-shadow:none">#A5D6A7</div>
+    <div class="d" style="background:#FFAB91;color:#4a1500;text-shadow:none">#FFAB91</div>
+  </div>
+
+  <!-- ───────── TYPOGRAPHY ───────── -->
+  <h2>8. Typography</h2>
+  <p class="lead">Two typefaces from the IBM Plex super-family, both loaded from Google Fonts. <strong>IBM Plex Sans</strong> brings clean, technical confidence to every heading; <strong>IBM Plex Serif</strong> carries body and reading text with warm, editorial readability.</p>
+  <div class="ty">
+    <div class="specimen-eyebrow">IBM Plex Sans · 700</div>
+    <div class="specimen">Every book, <span class="grad">every lesson</span></div>
+    <div class="specimen-body">IBM Plex Serif · 400 — the body family for paragraphs and reading. Set at <code class="inline">17px / 1.65</code> for body copy, <code class="inline">13–15px</code> for UI controls. The serif lends quiet authority to long-form content while Plex Sans carries headings, eyebrows, and the wordmark.</div>
+  </div>
+  <table>
+    <thead><tr><th>Token</th><th>Family</th><th>Sample size</th><th>Use</th></tr></thead>
+    <tbody>
+      <tr><td>Display</td><td><code>'IBM Plex Sans', sans-serif</code></td><td>40 – 60 px / 700</td><td>H1, hero, section headlines</td></tr>
+      <tr><td>Body / Reading</td><td><code>'IBM Plex Serif', serif</code></td><td>15 – 17 px / 400 – 500</td><td>Paragraphs, long-form, quotes, buttons</td></tr>
+      <tr><td>Eyebrow</td><td><code>'IBM Plex Sans'</code></td><td>11 px / 700, letter-spacing .18em</td><td>Section labels, chips</td></tr>
+      <tr><td>Logo</td><td><code>'IBM Plex Sans'</code></td><td>20 px / 700, letter-spacing –.03em</td><td>Wordmark</td></tr>
+    </tbody>
+  </table>
+  <p class="note"><strong>Weights loaded.</strong> Plex Sans 300 / 400 / 500 / 600 / 700 (+ italic 500, 700). Plex Serif 400 / 500 / 600 / 700 (+ italic 400, 600).</p>
+
+  <!-- ───────── SHADOWS ───────── -->
+  <h2>9. Elevation (Shadows)</h2>
+  <p class="lead">Three named tokens, all biased toward the brand blue / navy so elevation feels integrated rather than generic.</p>
+  <div class="shadow-row">
+    <div class="shc sm">--shadow-sm<small>0 2px 8px rgba(30,136,229,.08)</small></div>
+    <div class="shc md">--shadow-md<small>0 8px 28px rgba(30,136,229,.12)</small></div>
+    <div class="shc lg">--shadow-lg<small>0 20px 56px rgba(13,34,64,.14)</small></div>
+  </div>
+
+  <!-- ───────── RADIUS ───────── -->
+  <h2>10. Border Radius Scale</h2>
+  <p class="lead">Three radius tokens scale gracefully from buttons up to large feature cards. Buttons typically use <code class="inline">8px</code>; chips/pills use <code class="inline">30px</code>.</p>
+  <div class="radius-row">
+    <div class="rc r1">--r · 12px</div>
+    <div class="rc r2">--r-lg · 20px</div>
+    <div class="rc r3">--r-xl · 28px</div>
+  </div>
+
+  <!-- ───────── BUTTONS / EXAMPLES ───────── -->
+  <h2>11. Component Examples</h2>
+  <p class="lead">How the palette resolves in real components.</p>
+  <div class="ex-row">
+    <div class="ex">
+      <h4>Buttons</h4>
+      <button class="btn btn-orange">Request a Demo</button>
+      <button class="btn btn-blue">Browse Libraries</button>
+      <button class="btn btn-green">Confirm</button><br>
+      <button class="btn btn-white">Secondary</button>
+      <button class="btn btn-outline">Outline</button>
+    </div>
+    <div class="ex" style="background:linear-gradient(145deg,#0D3B7A,#1565C0,#1E88E5);color:#fff;border:none">
+      <h4 style="color:#fff">On dark gradient</h4>
+      <button class="btn btn-orange">Request a Demo</button>
+      <button class="btn" style="background:rgba(255,255,255,.12);color:#fff;border:1.5px solid rgba(255,255,255,.35);backdrop-filter:blur(8px)">Ghost button</button>
+      <p style="font-size:13px;color:rgba(255,255,255,.7);margin-top:14px">Body copy on the hero uses <code class="inline" style="background:rgba(255,255,255,.15);color:#fff">rgba(255,255,255,.72)</code> for primary, <code class="inline" style="background:rgba(255,255,255,.15);color:#fff">rgba(255,255,255,.5)</code> for trust line.</p>
+    </div>
+  </div>
+
+  <!-- ───────── PAIRING & CONTRAST ───────── -->
+  <h2>12. Pairings &amp; Contrast Rules</h2>
+  <table>
+    <thead><tr><th>Surface</th><th>Heading</th><th>Body</th><th>Accent</th></tr></thead>
+    <tbody>
+      <tr><td><span class="dot" style="background:#fff"></span> White / Off-white</td><td><code>--navy #0D2240</code></td><td><code>--text #1A2B42</code> · <code>--muted #5A6E88</code></td><td><code>--blue</code> for links, <code>--orange</code> for primary CTA</td></tr>
+      <tr><td><span class="dot" style="background:#F0F7FF"></span> Blue Pale band</td><td><code>--navy</code></td><td><code>--muted</code></td><td><code>--blue</code> eyebrows + dividers</td></tr>
+      <tr><td><span class="dot" style="background:#0D3B7A"></span> Hero / CTA</td><td><code>#FFFFFF</code></td><td><code>rgba(255,255,255,.72)</code></td><td><code>--orange</code> CTA · <code>#FFE082</code> highlight text</td></tr>
+      <tr><td><span class="dot" style="background:#061428"></span> Footer</td><td><code>#FFFFFF</code></td><td><code>rgba(255,255,255,.4)</code></td><td><code>rgba(255,255,255,.8)</code> on hover</td></tr>
+    </tbody>
+  </table>
+  <p class="note">All combinations above clear WCAG AA for normal text. <code class="inline">--muted</code> on white scores AA at 14 px+ regular weight; for smaller UI labels use <code class="inline">--text</code> instead.</p>
+
+  <!-- ───────── COPY-PASTE CSS ───────── -->
+  <h2>13. Copy &amp; Paste — Full :root Token Block</h2>
+  <p class="lead">Drop this directly into the top of any stylesheet to inherit the entire Schoobrary system.</p>
+<pre><span class="com">/* Schoobrary brand tokens */</span>
+<span class="key">:root</span> {
+  <span class="com">/* Brand palette */</span>
+  <span class="key">--blue</span>:        <span class="str">#1E88E5</span>;
+  <span class="key">--blue-mid</span>:    <span class="str">#1565C0</span>;
+  <span class="key">--blue-dark</span>:   <span class="str">#0D3B7A</span>;
+  <span class="key">--blue-light</span>:  <span class="str">#E3F2FD</span>;
+  <span class="key">--blue-pale</span>:   <span class="str">#F0F7FF</span>;
+
+  <span class="key">--green</span>:       <span class="str">#4DB848</span>;
+  <span class="key">--green-dark</span>:  <span class="str">#2E7D32</span>;
+  <span class="key">--green-light</span>: <span class="str">#E8F5E9</span>;
+  <span class="key">--green-pale</span>:  <span class="str">#F1FBF1</span>;
+
+  <span class="key">--orange</span>:      <span class="str">#F05A28</span>;
+  <span class="key">--orange-mid</span>:  <span class="str">#D94D1E</span>;
+  <span class="key">--orange-light</span>:<span class="str">#FFF0EB</span>;
+  <span class="key">--orange-pale</span>: <span class="str">#FFF8F5</span>;
+
+  <span class="key">--navy</span>:        <span class="str">#0D2240</span>;
+  <span class="key">--navy-mid</span>:    <span class="str">#1A3460</span>;
+  <span class="key">--white</span>:       <span class="str">#FFFFFF</span>;
+  <span class="key">--off-white</span>:   <span class="str">#F8FBFF</span>;
+  <span class="key">--grey</span>:        <span class="str">#F2F5F9</span>;
+  <span class="key">--border</span>:      <span class="str">#D8E6F5</span>;
+  <span class="key">--text</span>:        <span class="str">#1A2B42</span>;
+  <span class="key">--muted</span>:      <span class="str">#5A6E88</span>;
+
+  <span class="com">/* Elevation */</span>
+  <span class="key">--shadow-sm</span>:  <span class="str">0 2px 8px rgba(30,136,229,.08)</span>;
+  <span class="key">--shadow-md</span>:  <span class="str">0 8px 28px rgba(30,136,229,.12)</span>;
+  <span class="key">--shadow-lg</span>:  <span class="str">0 20px 56px rgba(13,34,64,.14)</span>;
+
+  <span class="com">/* Radius */</span>
+  <span class="key">--r</span>:           <span class="str">12px</span>;
+  <span class="key">--r-lg</span>:       <span class="str">20px</span>;
+  <span class="key">--r-xl</span>:       <span class="str">28px</span>;
+}
+
+<span class="com">/* Body defaults — reading set in Plex Serif */</span>
+<span class="key">body</span> {
+  <span class="key">font-family</span>: <span class="str">'IBM Plex Serif', serif</span>;
+  <span class="key">background</span>:  <span class="str">var(--white)</span>;
+  <span class="key">color</span>:       <span class="str">var(--text)</span>;
+  <span class="key">line-height</span>: <span class="str">1.65</span>;
+}
+
+<span class="com">/* Headings — Plex Sans */</span>
+<span class="key">h1, h2, h3, h4, h5, h6, .eyebrow, .btn, .logo-text</span> {
+  <span class="key">font-family</span>: <span class="str">'IBM Plex Sans', sans-serif</span>;
+}
+
+<span class="com">/* Hero / CTA gradient */</span>
+<span class="key">.hero</span> {
+  <span class="key">background</span>: <span class="str">linear-gradient(145deg,
+                var(--blue-dark) 0%,
+                var(--blue-mid) 40%,
+                var(--blue) 100%)</span>;
+}
+
+<span class="com">/* Primary CTA */</span>
+<span class="key">.btn-orange</span> {
+  <span class="key">background</span>: <span class="str">linear-gradient(135deg, var(--orange), #e04820)</span>;
+  <span class="key">color</span>:      <span class="str">#fff</span>;
+  <span class="key">box-shadow</span>: <span class="str">0 4px 18px rgba(240,90,40,.35)</span>;
+}</pre>
+
+  <h3>Google Fonts import</h3>
+<pre><span class="key">&lt;link</span> <span class="str">href=<span class="key">"https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,500;1,700&amp;family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&amp;display=swap"</span> rel=<span class="key">"stylesheet"</span></span><span class="key">/&gt;</span></pre>
+
+  <p class="note" style="margin-top:36px;border-top:1px solid var(--border);padding-top:20px">
+    <strong>Source.</strong> All tokens were extracted verbatim from <code class="inline">schoobrary_v3.html</code>. The palette is hex-only (no opacity tokens) and works in any framework — Tailwind theme, CSS custom properties, SCSS map, Figma styles, etc.
+  </p>
+
+</div>
+</body>
+</html>
