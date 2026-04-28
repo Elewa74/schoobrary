@@ -431,6 +431,16 @@ button,input,textarea,select{font-family:inherit}
   background:linear-gradient(135deg,var(--blue),var(--green));
   color:#fff;
 }
+.atlas-node span::before{
+  font-size:12px;
+  font-weight:900;
+  line-height:1;
+}
+.glyph-books::before{content:"B"}
+.glyph-video::before{content:"▶"}
+.glyph-labs::before{content:"L"}
+.glyph-question::before{content:"?"}
+.glyph-check::before{content:"✓"}
 .node-books{left:1%;top:18%;animation-delay:.1s}
 .node-video{left:11%;bottom:18%;animation-delay:.8s}
 .node-labs{right:4%;top:24%;animation-delay:1.2s}
@@ -508,6 +518,15 @@ button,input,textarea,select{font-family:inherit}
   stroke-linejoin:round;
   fill:none;
 }
+.benefit-icon svg{
+  width:34px;
+  height:34px;
+  stroke:currentColor;
+  stroke-width:1.7;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+  fill:none;
+}
 .card:hover .card-icon{transform:scale(1.1) rotate(-3deg)}
 .card h3{font-size:22px;font-weight:800;color:var(--blue-deep);margin:0}
 .card p{color:var(--muted);font-size:15px;line-height:1.6;margin:0}
@@ -564,10 +583,25 @@ button,input,textarea,select{font-family:inherit}
 @keyframes ambientMove{from{transform:translateY(0)}to{transform:translateY(-16px)}}
 .tags{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
 .tag{
+  display:inline-flex;align-items:center;gap:8px;
   background:#fff;border:1px solid var(--border);border-radius:999px;padding:9px 14px;font-weight:800;font-size:13px;color:var(--blue-deep);
   box-shadow:var(--shadow-sm);transition:.22s ease;
 }
 .tag:hover{transform:translateY(-3px);border-color:var(--blue-link);color:var(--blue-link);box-shadow:var(--shadow-md)}
+.tag-icon{
+  width:24px;height:24px;border-radius:9px;display:inline-grid;place-items:center;flex:0 0 24px;
+  background:radial-gradient(circle at 28% 18%,rgba(255,255,255,.95),transparent 31%),linear-gradient(145deg,#F9FCFF,#DDEEFF 52%,#B9D8FF);
+  border:1px solid rgba(255,255,255,.86);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.92),inset -4px -6px 10px rgba(13,34,64,.08),0 8px 14px rgba(29,73,138,.16);
+  color:var(--blue-deep);
+  font-size:12px;line-height:1;
+}
+.tag-icon::before{font-weight:900}
+.tag-books::before{content:"B"}
+.tag-video::before{content:"▶"}
+.tag-cube::before{content:"3D";font-size:9px}
+.tag-assessment::before{content:"?"}
+.tag-lesson::before{content:"✓"}
 
 /* Library Cards */
 .library-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
@@ -849,6 +883,7 @@ html:not(.js-ready) .reveal{opacity:1;transform:none}
   pointer-events:none;
 }
 .card-icon svg,
+.benefit-icon svg,
 .universe-icon svg,
 .lib-icon{
   filter:
@@ -1287,6 +1322,11 @@ html:not(.js-ready) .reveal{opacity:1;transform:none}
   margin-right:0;
   margin-left:10px;
 }
+.shelf-tile h3 .lib-icon,
+[dir="rtl"] .shelf-tile h3 .lib-icon{
+  margin:0;
+  flex:0 0 36px;
+}
 
 /* Before / after teacher workflow */
 .workflow-comparison{
@@ -1529,10 +1569,14 @@ html:not(.js-ready) .reveal{opacity:1;transform:none}
   margin-bottom:14px;
 }
 .shelf-tile h3{
+  display:flex;
+  align-items:center;
+  gap:10px;
   color:var(--blue-deep);
   font-size:19px;
   margin-bottom:8px;
 }
+[dir="rtl"] .shelf-tile h3{justify-content:flex-start}
 .shelf-tile p{
   color:var(--muted);
   font-size:14px;
