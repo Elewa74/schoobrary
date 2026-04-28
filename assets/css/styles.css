@@ -632,6 +632,12 @@ button,input,textarea,select{font-family:inherit}
 }
 .page-hero .container{position:relative;z-index:2}
 .page-hero h1{font-size:clamp(44px,6vw,76px);max-width:880px;margin-bottom:18px}
+[dir="rtl"] .page-hero h1{
+  font-size:clamp(36px,4.5vw,58px);
+  max-width:980px;
+  line-height:1.58;
+  overflow-wrap:break-word;
+}
 .page-hero p{max-width:830px;font-size:19px;color:rgba(255,255,255,.90)}
 
 /* Form */
@@ -1511,6 +1517,7 @@ html:not(.js-ready) .reveal{opacity:1;transform:none}
   /* Page hero (inner pages) */
   .page-hero{padding:150px 0 72px}
   .page-hero h1{font-size:clamp(38px,5vw,60px)}
+  [dir="rtl"] .page-hero h1{font-size:clamp(32px,4.4vw,48px);line-height:1.6}
   .page-hero p{font-size:17px}
 
   /* Split sections */
@@ -1621,6 +1628,7 @@ html:not(.js-ready) .reveal{opacity:1;transform:none}
   /* Page hero (inner pages) */
   .page-hero{padding:120px 0 56px}
   .page-hero h1{font-size:clamp(30px,8vw,46px)}
+  [dir="rtl"] .page-hero h1{font-size:clamp(26px,6.4vw,36px);line-height:1.62}
   .page-hero p{font-size:15px}
 
   /* Buttons – tap friendly */
@@ -1751,6 +1759,7 @@ html:not(.js-ready) .reveal{opacity:1;transform:none}
   .section-title{font-size:clamp(24px,6.5vw,32px)}
   .page-hero{padding:110px 0 48px}
   .page-hero h1{font-size:clamp(26px,7.5vw,36px)}
+  [dir="rtl"] .page-hero h1{font-size:clamp(23px,6vw,30px);line-height:1.65}
   .stats-panel{grid-template-columns:1fr}
   .stat{border-right:none}
   .universe-layer{padding:18px 16px 16px}
