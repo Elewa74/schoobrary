@@ -178,6 +178,12 @@
   const menuBtn = document.querySelector('.mobile-menu-btn');
   const navLinks = document.querySelector('.nav-links');
   if(menuBtn && navLinks){
+    const loginLink = document.querySelector('.nav-actions > .btn-primary');
+    if(loginLink && !navLinks.querySelector('.mobile-login-link')){
+      const mobileLogin = loginLink.cloneNode(true);
+      mobileLogin.classList.add('mobile-login-link');
+      navLinks.appendChild(mobileLogin);
+    }
     menuBtn.setAttribute('aria-expanded', 'false');
     menuBtn.addEventListener('click', ()=>{
       const open = navLinks.classList.toggle('mobile-open');

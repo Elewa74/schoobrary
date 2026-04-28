@@ -124,6 +124,7 @@ button,input,textarea,select{font-family:inherit}
 .nav-links a:hover,.nav-links a.active{
   color:var(--blue);
 }
+.nav-links .mobile-login-link{display:none}
 .nav-actions{display:flex;align-items:center;gap:14px;flex:none}
 .nav-icon-btn{
   background:none;border:none;cursor:pointer;color:var(--text);
@@ -752,6 +753,20 @@ html:not(.js-ready) .reveal{opacity:1;transform:none}
   .site-header.scrolled .nav-links.mobile-open a:hover,
   .site-header.scrolled .nav-links.mobile-open a.active{
     background:rgba(255,255,255,.16);
+    color:#fff;
+  }
+  .nav-links.mobile-open .mobile-login-link,
+  .site-header.scrolled .nav-links.mobile-open .mobile-login-link{
+    display:flex;
+    justify-content:center;
+    margin-top:8px;
+    background:linear-gradient(135deg,var(--green),var(--blue-mid));
+    color:#fff;
+    box-shadow:0 14px 30px rgba(0,0,0,.2);
+  }
+  .nav-links.mobile-open .mobile-login-link:hover,
+  .site-header.scrolled .nav-links.mobile-open .mobile-login-link:hover{
+    background:linear-gradient(135deg,var(--green),var(--blue-mid));
     color:#fff;
   }
   .mobile-menu-btn{display:block;min-width:44px;min-height:44px}
