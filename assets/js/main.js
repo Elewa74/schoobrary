@@ -61,6 +61,7 @@
     if(el.dataset.done) return;
     el.dataset.done = '1';
     const target = Number(el.dataset.count);
+    const prefix = el.dataset.prefix || '';
     const suffix = el.dataset.suffix || '';
     let current = 0;
     const duration = 1300;
@@ -69,7 +70,7 @@
       const p = Math.min((now - start) / duration, 1);
       const eased = 1 - Math.pow(1 - p, 3);
       current = target * eased;
-      el.textContent = Math.round(current).toLocaleString() + suffix;
+      el.textContent = prefix + Math.round(current).toLocaleString() + suffix;
       if(p < 1) requestAnimationFrame(tick);
     }
     requestAnimationFrame(tick);
