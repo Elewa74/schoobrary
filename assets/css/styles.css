@@ -536,14 +536,14 @@ button,input,textarea,select{font-family:inherit}
   flex-direction:row;
   align-items:baseline;
   justify-content:center;
-  gap:0;
-  direction:ltr;
+  gap:.12em;
+  direction:rtl;
   unicode-bidi:isolate;
   letter-spacing:0;
   white-space:nowrap;
 }
-[dir="rtl"] .stat-word{margin-left:.18em}
-[dir="rtl"] .stat-plus{margin-right:.08em}
+[dir="rtl"] .stat-word,
+[dir="rtl"] .stat-plus{margin:0}
 .stat:nth-child(2) strong,.stat:nth-child(4) strong{color:var(--green-dark)}
 .stat:nth-child(3) strong,.stat:nth-child(5) strong{color:var(--orange-dark)}
 .stat strong span{font-size:inherit;color:inherit;margin-top:0}
