@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Documentation — Schoobrary</title>
+<meta name="description" content="Website and product documentation for Schoobrary, the integrated digital school library."/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Serif:wght@400;500;600;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="assets/img/favicon.png"/>
+<link rel="shortcut icon" href="favicon.ico"/>
+<link rel="apple-touch-icon" href="assets/img/favicon.png"/>
+<link rel="stylesheet" href="assets/css/styles.css"/>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="nav container">
+    <a class="logo" href="index.html" aria-label="Schoobrary home"><img class="logo-img" src="assets/img/schoobrary-logo.png" alt="Schoobrary logo"/></a>
+    <nav class="nav-links" aria-label="Primary navigation">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="libraries.html">Libraries</a>
+      <a href="question-bank.html">Question Bank</a>
+      <a href="integrations.html">Integrations</a>
+      <a href="schools.html">Schools</a>
+      <a href="teachers.html">Teachers</a>
+      <a href="students.html">Students & Parents</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="nav-actions">
+      <button class="nav-icon-btn" aria-label="Search" type="button">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+      </button>
+      <a class="lang-toggle" href="documentation-ar.html" aria-label="Switch to Arabic">العربية</a>
+      <a class="btn btn-primary" href="https://library.schoobrary.com">Log in</a>
+      <button class="mobile-menu-btn" aria-label="Open menu" type="button">☰</button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+<section class="page-hero section-dark">
+  <div class="container">
+    <div class="eyebrow">Documentation</div>
+    <h1>How the Schoobrary website is structured.</h1>
+    <p>A practical guide to the public website pages, content sections, product messages, integrations, and operating links.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="eyebrow">Site Map</div>
+      <h2 class="section-title">Main public pages.</h2>
+      <p class="section-sub">The website is organized around product explanation, audience-specific value, content libraries, assessment, integrations, and contact workflows.</p>
+    </div>
+    <div class="grid grid-3">
+      <article class="card reveal"><h3>Home</h3><p>Introduces Schoobrary as a fully integrated digital school library, explains the core value proposition, and links to key product areas.</p></article>
+      <article class="card reveal"><h3>About</h3><p>Explains why Schoobrary exists, the regional need it addresses, and its connection to Almotahida Education Group.</p></article>
+      <article class="card reveal"><h3>Libraries</h3><p>Documents the twelve specialized content libraries and how resources are connected through metadata and curriculum mapping.</p></article>
+      <article class="card reveal"><h3>Question Bank</h3><p>Explains smart assessment, automatic grading, tagged questions, difficulty levels, Bloom's taxonomy, and remediation support.</p></article>
+      <article class="card reveal"><h3>Integrations</h3><p>Summarizes LMS, SSO, LTI, SCORM, xAPI, and the technical review points schools may need before adoption.</p></article>
+      <article class="card reveal"><h3>Contact</h3><p>Collects school, role, student count, and message details. Submissions are directed to the Schoobrary contact email workflow.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="eyebrow">Audience Pages</div>
+      <h2 class="section-title">Role-specific messaging.</h2>
+    </div>
+    <div class="steps">
+      <div class="step reveal"><div class="step-num">1</div><h3>For Schools</h3><p>Focuses on institutional benefits, cost savings, simultaneous access, analytics, and deployment steps.</p></div>
+      <div class="step reveal"><div class="step-num">2</div><h3>For Teachers</h3><p>Explains lesson planning, resource assignment, automatic grading, and outcome-level performance insight.</p></div>
+      <div class="step reveal"><div class="step-num">3</div><h3>For Students & Parents</h3><p>Positions Schoobrary as safe, teacher-supervised access to learning resources across school and home.</p></div>
+      <div class="step reveal"><div class="step-num">4</div><h3>Legal</h3><p>Provides privacy, terms, cookie, and accessibility policy summaries for review before final publication.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container split">
+    <div class="reveal">
+      <div class="eyebrow">Operational Notes</div>
+      <h2 class="section-title">Current live links and workflows.</h2>
+      <p class="section-sub">The public website is static HTML, CSS, and JavaScript. Updates are committed to the GitHub repository and published from the main branch.</p>
+    </div>
+    <div class="it-checklist reveal">
+      <div class="check-row">Login buttons point to <strong>https://library.schoobrary.com</strong>.</div>
+      <div class="check-row">Demo and inquiry workflows point users to the contact page.</div>
+      <div class="check-row">The contact form uses a mail workflow directed to <strong>info@scoobrary.com</strong>.</div>
+      <div class="check-row">English and Arabic pages are maintained as separate HTML files with matched page structure.</div>
+      <div class="check-row">Shared styling, responsive rules, and 3D icon styling are managed in <strong>assets/css/styles.css</strong>.</div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <a class="logo footer-logo" href="index.html" aria-label="Schoobrary home"><img class="footer-logo-img" src="assets/img/schoobrary-logo.png" alt="Schoobrary logo"/></a>
+      <p>Tomorrow's Library for Today's Learning.</p>
+      <p>One site. One library. One world of learning.</p>
+    </div>
+    <div><h4>Schoobrary</h4><a href="about.html">About Us</a><a href="about.html#story">Our Story</a><a href="contact.html">Contact</a></div>
+    <div><h4>Product</h4><a href="libraries.html">The Libraries</a><a href="question-bank.html">Question Bank</a><a href="integrations.html">Integrations</a><a href="contact.html">Request a Demo</a></div>
+    <div><h4>For Your Role</h4><a href="schools.html">For Schools</a><a href="teachers.html">For Teachers</a><a href="students.html">For Students & Parents</a></div>
+    <div><h4>Support</h4><a href="contact.html">Help Center</a><a href="documentation.html">Documentation</a><a href="legal.html">Privacy & Terms</a><a href="legal.html">Accessibility</a></div>
+  </div>
+  <div class="container">
+    <div class="footer-bottom">
+      <span>© 2026 Almotahida Education Group. All rights reserved.</span>
+      <span>Privacy Policy · Terms of Service · Cookie Policy · Accessibility</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>
