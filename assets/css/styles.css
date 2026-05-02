@@ -638,6 +638,9 @@ button,input,textarea,select{font-family:inherit}
   border:none!important;
   box-shadow:none!important;
 }
+.tag-icon:has(> img)::before{
+  content:none!important;
+}
 .tag-icon::before{font-weight:900}
 .tag-books::before{content:"B"}
 .tag-video::before{content:"▶"}
