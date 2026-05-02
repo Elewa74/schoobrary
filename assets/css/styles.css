@@ -529,7 +529,8 @@ button,input,textarea,select{font-family:inherit}
   fill:none;
 }
 .card-icon img,
-.benefit-icon img{
+.benefit-icon img,
+.universe-icon img{
   width:56px;
   height:56px;
   object-fit:contain;
@@ -544,14 +545,16 @@ button,input,textarea,select{font-family:inherit}
   margin-inline-end:8px;
 }
 .card-icon:has(> img),
-.benefit-icon:has(> img){
+.benefit-icon:has(> img),
+.universe-icon:has(> img){
   background:transparent!important;
   border:none!important;
   box-shadow:none!important;
   text-shadow:none!important;
 }
 .card-icon:has(> img)::after,
-.benefit-icon:has(> img)::after{
+.benefit-icon:has(> img)::after,
+.universe-icon:has(> img)::after{
   display:none;
 }
 .card:hover .card-icon{transform:scale(1.1) rotate(-3deg)}
@@ -622,6 +625,18 @@ button,input,textarea,select{font-family:inherit}
   box-shadow:inset 0 1px 0 rgba(255,255,255,.92),inset -4px -6px 10px rgba(13,34,64,.08),0 8px 14px rgba(29,73,138,.16);
   color:var(--blue-deep);
   font-size:12px;line-height:1;
+}
+.tag-icon img{
+  width:24px;
+  height:24px;
+  object-fit:contain;
+  display:block;
+  filter:drop-shadow(0 2px 0 rgba(255,255,255,.72)) drop-shadow(0 5px 7px rgba(13,34,64,.18));
+}
+.tag-icon:has(> img){
+  background:transparent!important;
+  border:none!important;
+  box-shadow:none!important;
 }
 .tag-icon::before{font-weight:900}
 .tag-books::before{content:"B"}
@@ -929,6 +944,7 @@ html:not(.js-ready) .reveal{opacity:1;transform:none}
 .lib-icon,
 .card-icon img,
 .benefit-icon img,
+.universe-icon img,
 .lib-icon-image{
   filter:
     drop-shadow(0 2px 0 rgba(255,255,255,.72))
@@ -1101,6 +1117,10 @@ html:not(.js-ready) .reveal{opacity:1;transform:none}
   fill:none;
   filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.1));
 }
+.universe-icon img{
+  width:60px;
+  height:60px;
+}
 .lib-icon{
   width:20px;
   height:20px;
@@ -1110,6 +1130,9 @@ html:not(.js-ready) .reveal{opacity:1;transform:none}
 }
 .universe-card:hover .universe-icon svg{
   transform:scale(1.1) rotate(5deg);
+}
+.universe-card:hover .universe-icon img{
+  transform:scale(1.04);
 }
 .universe-card:hover .universe-icon,
 .universe-card:focus-visible .universe-icon{
