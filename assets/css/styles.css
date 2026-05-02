@@ -530,18 +530,29 @@ button,input,textarea,select{font-family:inherit}
 }
 .card-icon img,
 .benefit-icon img{
-  width:38px;
-  height:38px;
+  width:56px;
+  height:56px;
   object-fit:contain;
   display:block;
 }
 .lib-icon-image{
-  width:28px;
-  height:28px;
+  width:34px;
+  height:34px;
   object-fit:contain;
   display:inline-block;
-  vertical-align:-6px;
+  vertical-align:-8px;
   margin-inline-end:8px;
+}
+.card-icon:has(> img),
+.benefit-icon:has(> img){
+  background:transparent!important;
+  border:none!important;
+  box-shadow:none!important;
+  text-shadow:none!important;
+}
+.card-icon:has(> img)::after,
+.benefit-icon:has(> img)::after{
+  display:none;
 }
 .card:hover .card-icon{transform:scale(1.1) rotate(-3deg)}
 .card h3{font-size:22px;font-weight:800;color:var(--blue-deep);margin:0}
